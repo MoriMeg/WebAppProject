@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+
+{% block title %}
+ユーザ情報変更
+{% endblock title %}
+{% block header %}
+    {% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block content %}
+<div class="userinfo">
+    <h2>ユーザ情報変更</h2>
+    <form method="POST">
+        {{ form.non_field_errors }}
+        <table class="userinfo-table">
+            <tr><th>ユーザID</th><td>{{ user.username }}</td></tr>
+            <tr><th>E-mail</th><td>{{ form.email|add_class:"form-control" }}<span>{{ form.email.errors }}</span></td></tr>
+            <tr><th>氏名</th>
+                <td>姓　{{ form.last_name|add_class:"form-name" }}<span>{{ form.last_name.errors }}</span>　名　{{ form.first_name|add_class:"form-name" }}<span>{{ form.first_name.errors }}</td>
+            </tr>
+            <tr><th>年齢</th><td>{{ form.age|add_class:"form-control" }}<span>{{ form.age.errors }}</span></td></tr>
+        </table>
+        {% csrf_token %}
+        <div class="btn-area">
+              <button class="change-btn" type="submit">変更</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

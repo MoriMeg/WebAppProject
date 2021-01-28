@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+
+{% block title %}
+サインアップ
+{% endblock title %}
+{% block header %}
+    {% include 'headermenu_login.html' %}
+{% endblock header %}
+{% block content %}
+<h2 class="title-signup">サインアップ</h2>
+<form class="form-signup" method="POST" action="">
+    {% csrf_token %}
+    <label for="id_username">ユーザ名</label>
+    <input type="text" id="id_username" class="form-control" name="username" placeholder="USERID" required autofocus>
+    <p class="help-signup">この項目は必須です。半角アルファベット、半角数字、@/./+/-/_ で150文字以下にしてください。</p>
+    <label for="password1">パスワード</label>
+    <input type="password" id="password1" class="form-control" name="password1" placeholder="PASSWORD" required>
+    <ul class="help-signup">
+        <li>あなたの他の個人情報と似ているパスワードにはできません。</li>
+        <li>パスワードは最低 8 文字以上必要です。</li>
+        <li>よく使われるパスワードにはできません。</li>
+        <li>数字だけのパスワードにはできません。</li>
+    </ul>
+    <label for="password2">パスワード（確認用）</label>
+    <input type="password" id="password2" name="password2" class="form-control" placeholder="PASSWORD" required>
+    <p class="help-signup">確認のため、再度パスワードを入力して下さい。</p>
+    <div class="btn-area">
+        <button class="signup-btn" type="submit">ユーザ登録</button>
+    </div>
+</form>
+{% endblock content %}

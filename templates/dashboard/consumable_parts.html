@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+{% block title %}
+異常統計
+{% endblock title %}
+{% block header %}
+{% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block sidemenu %}
+{% include 'sidemenu.html' %}
+{% endblock sidemenu %}
+{% block content %}
+{% include 'dashboard/graf.html' %}
+{% endblock content %}

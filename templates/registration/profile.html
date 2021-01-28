@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+
+{% block title %}
+ユーザ情報
+{% endblock title %}
+{% block header %}
+    {% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block content %}
+<div class="userinfo">
+  <h2>ユーザ情報</h2>
+  <table class="userinfo-table">
+    <tr><th>ユーザID</th><td>{{ user.username }}</td></tr>
+    <tr><th>E-mail</th><td>{{ user.email }}</td></tr>
+    <tr><th>氏名</th>
+        <td>姓　{{ user.last_name }}　名　{{ user.first_name }}</td>
+    </tr>
+    <tr><th>年齢</th><td>{{ user.age }}</td></tr>
+  </table>
+</div>
+{% endblock content %}

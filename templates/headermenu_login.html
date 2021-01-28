@@ -1,0 +1,10 @@
+{% load static %}
+<div class="header header-color">
+    <div class="header-item">
+      <img class="header-logo" src="{% static 'Qualicaps.gif' %}" alt="Qualicaps">
+    </div>
+    <div class="header-btn">
+        <button class="btn-signup" type="button" onclick="location.href='{% url 'accounts:signup' %}'">サインアップ</button>
+        <button class="btn-login" type="button" onclick="location.href='{% url 'login' %}'">ログイン</button>
+    </div>
+</div>

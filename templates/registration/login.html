@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+
+{% block title %}
+ログイン
+{% endblock title %}
+{% block header %}
+    {% include 'headermenu_login.html' %}
+{% endblock header %}
+{% block content %}
+<h2 class="title-login">ログイン</h2>
+<form class="form-login" method="POST" action="">
+    {% csrf_token %}
+    <label for="inputUser">ユーザ名</label>
+    <input type="text" id="inputUser" class="form-control" name="username" placeholder="USERID" required autofocus>
+    <label for="inputPassword">パスワード</label>
+    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="PASSWORD" required>
+    <div class="btn-area">
+        <button class="login-btn" type="submit">ログイン</button>
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+{% block title %}
+メンテナンス記録
+{% endblock title %}
+{% block header %}
+{% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block sidemenu %}
+{% include 'sidemenu.html' %}
+{% endblock sidemenu %}
+{% block content %}
+<div class="maintenance_container">
+    <div class="maintenance_update_menu">
+        <div class="maintenance_update_cancel">
+            <button class="maintenance_cancel_btn" onclick="location.href='{% url 'dashboard:maintenance_detail' object.pk %}'" class="work-input" type="submit">キャンセル</button>
+        </div>
+        <div class="maintenance_list_title"><h3>メンテナンス記録更新</h3></div>
+        <div class="maintenance_update_complete">
+            <button class="maintenance_complete_btn" type="submit">完了</button>
+        </div>
+    </div>
+    <div class="maintenance_update_table">
+    {% if user.is_authenticated %}
+        <form action=" " method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="maintenance_main_container">
+                <table class="maintenance_main-table">
+                    <tr>
+                        <th>日付</th>
+                        <td>{{ form.date }}</td>
+                    </tr>
+                </table>
+                <table class="maintenance_main-table">
+                    <tr>
+                        <th>作業者</th>
+                        <td>{{ form.author }}</td>
+                    </tr>
+                </table>
+            </div>
+            <p>点検内容</p>
+            <table class="maintenance_work-table">
+                <tr>
+                    <th>カテゴリ</th>
+                    <td>
+                        <select id="category" name="category">
+                            <option value="定期点検">定期点検</option>
+                            <option value="改造作業">改造作業</option>
+                            <option value="品目追加">品目追加</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>内容</th>
+                    <td>{{ form.content|add_class:"content" }}</td>
+                </tr>
+                <tr>
+                    <th>コメント</th>
+                    <td>{{ form.comment|add_class:"comment" }}</td>
+                </tr>
+                <tr>
+                    <th>画像</th>
+                    <td><input id="file" type="file" name="images"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div>
+        <button class="maintenance_delete_btn" onclick="location.href='{% url 'dashboard:maintenance_delete' object.pk %}'">削除</button>
+    </div>
+</div>
+{% else %}
+ログインして下さい
+{% endif %}
+{% endblock content %}

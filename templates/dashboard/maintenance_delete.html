@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+{% block title %}
+メンテナンス記録削除
+{% endblock title %}
+{% block header %}
+{% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block sidemenu %}
+{% include 'sidemenu.html' %}
+{% endblock sidemenu %}
+{% block content %}
+<h3>メンテナンス記録の削除</h3>
+<p>{{ object.date }} : {{ object.author }} : {{ object.category }} : {{ object.content }} のデータを削除します。よろしいですか？</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <button class="maintenance_return_btn" onclick="location.href='{% url 'dashboard:maintenance_list' %}'">キャンセル</button>
+    <button class="maintenance_delete_btn"　type="submit">削除</button>
+</form>
+
+{% endblock content %}

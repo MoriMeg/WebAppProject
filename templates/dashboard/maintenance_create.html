@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block customcss %}
+
+{% endblock customcss %}
+{% block title %}
+メンテナンス記録
+{% endblock title %}
+{% block header %}
+{% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block sidemenu %}
+{% include 'sidemenu.html' %}
+{% endblock sidemenu %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="maintenance_container">
+    <div class="maintenance_list_menu">
+        <div class="maintenance_list_title"><h3>メンテナンス登録</h3></div>
+    </div>
+    <div class="maintenance_list_table">
+        <form action=" " method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="maintenance_main_container">
+                <table class="maintenance_main-table">
+                    <tr>
+                        <th>日付</th>
+                        <td><input id="date" type="date" name="date"></td>
+                    </tr>
+                </table>
+                <table class="maintenance_main-table">
+                    <tr>
+                        <th>作業者</th>
+                        <td><input id="author" type="text" name="author"></td>
+                    </tr>
+                </table>
+            </div>
+            <h3>点検内容</h3>
+            <table class="maintenance_work-table">
+                <tr>
+                    <th>カテゴリ</th>
+                    <td>
+                        <select id="category" name="category">
+                            <option value="定期点検">定期点検</option>
+                            <option value="改造作業">改造作業</option>
+                            <option value="品目追加">品目追加</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>内容</th>
+                    <td><input class="content" id="text" type="text" name="content"></td>
+                </tr>
+                <tr>
+                    <th>コメント</th>
+                    <td><input class="comment"id="comment" type="text" name="comment"></td>
+                </tr>
+                <tr>
+                    <th>画像</th>
+                    <td><input id="file" type="file" name="images"></td>
+                </tr>
+            </table>
+            <button class="maintenance_create_btn" type="submit">作成する</button>
+        </form>
+    </div>
+
+{% else %}
+ログインして下さい
+{% endif %}
+{% endblock content %}

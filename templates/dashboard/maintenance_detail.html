@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block customcss %}
+
+{% endblock customcss %}
+{% block title %}
+メンテナンス記録詳細
+{% endblock title %}
+{% block header %}
+{% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block sidemenu %}
+{% include 'sidemenu.html' %}
+{% endblock sidemenu %}
+{% block content %}
+<div class="maintenance_container">
+    <div class="maintenance_detail_menu">
+        <div class="maintenance_detail_return">
+            <button class="maintenance_return_btn" onclick="location.href='{% url 'dashboard:maintenance_list' %}'"><</button>
+        </div>
+        <div class="maintenance_list_title"><h3>メンテナンス記録詳細</h3></div>
+        <div class="maintenance_detail_update">
+            <button class="maintenance_update_btn" onclick="location.href='{% url 'dashboard:maintenance_update' object.pk %}'">編集</button>
+        </div>
+    </div>
+    <div class="maintenance_detail_table">
+    {% if user.is_authenticated %}
+        <div class="maintenance_main_container">
+            <table class="maintenance_main-table">
+                <tr>
+                    <th>日付</th>
+                    <td>{{ object.date }}</td>
+                </tr>
+            </table>
+            <table class="maintenance_main-table">
+                <tr>
+                    <th>作業者</th>
+                    <td>{{ object.author }}</td>
+                </tr>
+            </table>
+        </div>
+        <p>点検内容</p>
+        <table class="maintenance_work-table">
+            <tr>
+                <th>カテゴリ</th>
+                <td>{{ object.category }}</td>
+            </tr>
+            <tr>
+                <th>内容</th>
+                <td>{{ object.content }}</td>
+            </tr>
+            <tr>
+                <th>コメント</th>
+                <td>{{ object.comment }}</td>
+            </tr>
+            <tr>
+                <th>画像</th>
+                <td>{{ object.images }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% else %}
+ログインして下さい
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,46 @@
+<!doctype html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% block customcss %}
+    {% endblock customcss %}
+    <title>
+    {% block title %}
+    {% endblock title %}
+    </title>
+  </head>
+  <body>
+    <header>
+      <div class="header header-color">
+        <div class="header-item">
+          <img class="header-logo" src="{% static 'Qualicaps.gif' %}" alt="Qualicaps">
+        </div>
+        <div class="header-item">
+          <ul class="dropdownmenu">
+            <li><a href="{% url 'accounts:profile' %}">{{ user.username }}</a>
+             <ul>
+                <li><a href="{% url 'accounts:profile' %}">プロフィール情報</a></li>
+                <li><a href="{% url 'accounts:change' %}">プロフィール変更</a></li>
+                <li><a href="{% url 'password_change' %}">パスワード変更</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'logout' %}">ログアウト</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <main class="container-item">
+        <article>
+          {% block content %}
+          {% endblock content %}
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{% load static %}
+<div class="header header-color">
+    <div class="header-item">
+      <img class="header-logo" src="{% static 'Qualicaps.gif' %}" alt="Qualicaps">
+    </div>
+    <div class="header-item">
+      <ul class="dropdownmenu">
+        <li><a href="{% url 'accounts:profile' %}">{{ user.username }}</a>
+         <ul>
+            <li><a href="{% url 'accounts:profile' %}">プロフィール情報</a></li>
+            <li><a href="{% url 'accounts:change' %}">プロフィール変更</a></li>
+            <li><a href="{% url 'password_change' %}">パスワード変更</a></li>
+          </ul>
+        </li>
+        <li><a href="{% url 'logout' %}">ログアウト</a></li>
+      </ul>
+    </div>
+</div>

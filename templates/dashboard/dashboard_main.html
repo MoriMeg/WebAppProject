@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+{% block title %}
+メインダッシュボード
+{% endblock title %}
+{% block header %}
+{% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block sidemenu %}
+{% include 'sidemenu.html' %}
+{% endblock sidemenu %}
+{% block content %}
+<iframe src="http://54.64.98.39:5601/app/dashboards#/view/c34aea40-287a-11eb-ae84-e7a4a6e5b079?embed=true&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!f%2Cvalue%3A10000)%2Ctime%3A(from%3A'2021-01-07T00%3A00%3A00.000Z'%2Cto%3A'2021-01-07T01%3A30%3A00.000Z'))&show-time-filter=true&hide-filter-bar=true" height="600" width="800"></iframe>
+{{my_function}}
+{% endblock content %}

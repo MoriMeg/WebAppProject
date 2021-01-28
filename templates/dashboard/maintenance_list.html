@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
+{% block title %}
+メンテナンス記録
+{% endblock title %}
+{% block header %}
+{% include 'headermenu_dashboard.html' %}
+{% endblock header %}
+{% block sidemenu %}
+{% include 'sidemenu.html' %}
+{% endblock sidemenu %}
+{% block content %}
+<div class="maintenance_container">
+    <div class="maintenance_list_menu">
+        <div class="maintenance_list_title"><h3>メンテナンス記録</h3></div>
+        <div class="maintenance_list_create">
+            <button onclick="location.href='{% url 'dashboard:maintenance_create' %}'">✚</button>
+        </div>
+    </div>
+    <div class="maintenance_list_table">
+        <table class="maintenance_list">
+            <thead>
+                <tr>
+                    <th>日付</th>
+                    <th>作業区分</th>
+                    <th>作業内容</th>
+                    <th>備考</th>
+                    <th>入力者</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in object_list %}
+                <tr>
+                    <td><a href="{% url 'dashboard:maintenance_detail' item.pk %}" class=""  role="button">{{ item.date }}</a></td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.content }}</td>
+                    <td>{{ item.comment }}</td>
+                    <td>{{ item.author }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

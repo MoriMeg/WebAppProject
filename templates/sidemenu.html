@@ -1,0 +1,14 @@
+{% load static %}
+<aside class="container-item">
+    <nav>
+      <ul class="menu">
+        <li><a href="{% url 'dashboard:dashboard_main' %}" class="asideAnchor"><img class="logo" src="{% static 'home.svg' %}" alt="稼働モニタ" width="7%">稼働モニタ</a></li>
+        <li><a href="{% url 'dashboard:monitor' %}" class="asideAnchor"><img class="logo" src="{% static 'info.svg' %}" alt="装置状態モニタ" width="7%">装置状態モニタ</a></li>
+        <li><a href="{% url 'dashboard:maintenance_list' %}" class="asideAnchor"><img class="logo" src="{% static 'tool.svg' %}" alt="メンテンナス記録" width="7%">メンテンナス記録</a></li>
+        <li><a href="{% url 'dashboard:electric_parts' %}" class="asideAnchor"><img class="logo" src="{% static 'hard-drive.svg' %}" alt="電気部品モニタ" width="7%">電気部品モニタ</a></li>
+        <li><a href="{% url 'dashboard:alarm' %}" class="asideAnchor"><img class="logo" src="{% static 'alert-triangle.svg' %}" alt="異常統計" width="7%">異常統計</a></li>
+        <li><a href="{% url 'dashboard:consumable_parts' %}" class="asideAnchor"><img class="logo" src="{% static 'droplet.svg' %}" alt="消耗部品" width="7%">消耗部品</a></li>
+        <li><a href="{% url 'dashboard:report' %}" class="asideAnchor"><img class="logo" src="{% static 'file.svg' %}" alt="月次レポート" width="7%">月次レポート</a></li>
+      </ul>
+    </nav>
+</aside>
