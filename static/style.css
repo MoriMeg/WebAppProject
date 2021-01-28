@@ -1,0 +1,630 @@
+/* 全体 */
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  background-color: #F5F5F5;
+}
+
+/* ヘッダー */
+/* 垂直方向の位置合せ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-color {
+  background-color: #EEEEEE;
+}
+.header-logo {
+ padding: 10px;
+ width: 30%;
+}
+.btn-signup {
+    margin: 10px;
+    padding: 2px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 120px;
+    border-radius:5px;
+}
+
+.btn-login {
+    margin: 10px;
+    padding: 2px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 120px;
+    border-radius:5px;
+}
+/* --------------------     */
+/* ▼ドロップダウンメニューの装飾 */
+/* --------------------      */
+ul.dropdownmenu {
+   margin: 0px;               /* メニューバー外側の余白(ゼロ) */
+   padding: 0px 0px 0px 15px; /* メニューバー内側の余白(左に15px) */
+   background-color: #EEEEEE; /* バーの背景色(濃い赤色) */
+}
+
+/* -------------------------- */
+/* ▼メニュー項目の装飾           */
+/* -------------------------- */
+ul.dropdownmenu li {
+   width: 150px;           /* メニュー項目の横幅 */
+   display: inline-block;  /* 横並びに配置 */
+   list-style-type: none;  /* リストの先頭記号を消す */
+   position: relative;     /* サブメニュー表示の基準位置にする */
+}
+ul.dropdownmenu a {
+   background-color: #EEEEEE; /* メニュー項目の背景色 */
+   color: #060505;            /* メニュー項目の文字色 */
+   line-height: 40px;         /* メニュー項目のリンクの高さ) */
+   text-align: center;        /* メインメニューの文字列の配置 */
+   text-decoration: none;     /* メニュー項目の装飾(下線を消す) */
+   font-weight: bold;         /* 太字にする */
+   display: block;            /* 項目内全域をリンク可能にする */
+}
+ul.dropdownmenu a:hover {
+   background-color: #dddddd; /* メニュー項目にマウスが載ったときの背景色 */
+   color: #060505;            /* メニュー項目にマウスが載ったときの文字色 */
+}
+
+/* ---------------------*/
+/* ▼サブメニューを開く処理 */
+/* ---------------------*/
+ul.dropdownmenu li:hover ul {
+    display: block;      /* マウスポインタが載っている項目の内部リストを表示 */
+    border: solid 1px #dddddd;
+    box-shadow: 0 0 3px #000000;
+}
+
+/* -------------------- */
+/* ▼サブメニューの装飾 　　*/
+/* -------------------- */
+ul.dropdownmenu ul {
+   display: none;       /* 標準では非表示にする */
+   margin: 0px;         /* サブメニュー外側の余白(ゼロ) */
+   padding: 0px;        /* サブメニュー内側の余白(ゼロ) */
+   position: absolute;  /* 絶対配置にする */
+}
+/* ------------------------ */
+/* ▼サブメニュー項目の装飾 　　 */
+/* ------------------------ */
+ul.dropdownmenu ul li {
+    width: 150px;               /* サブメニュー1項目の横幅 */
+    border-top: solid 1px #dddddd;
+}
+ul.dropdownmenu ul li a {
+   line-height: 40px;   /* サブメニュー1項目の高さ */
+   text-align: left;    /* 文字列の配置(左寄せ) */
+   padding-left: 5px;   /* 文字列前方の余白(5px) */
+   font-weight: normal; /* 太字にはしない */
+}
+ul.dropdownmenu ul li a:hover {
+   color: #0F7C90;            /* サブメニュー項目にマウスが載ったときの文字色 */
+}
+
+/* メイン表示エリア */
+.container {
+  display: flex;
+}
+main {
+    width:100%;
+    height:1000px;
+}
+/* メイン表示エリア */
+article {
+    margin: 10px 0px 0px 10px ;
+    width: 100%;
+    height: 100%;
+    background-color: #EEEEEE;
+    padding:10px;
+}
+
+/* サイドバー */
+aside {
+    margin-top: 10px;
+    background-color: #EEEEEE;
+    width: 20%;
+}
+.asideAnchor {
+  padding: 10px 0;
+  display: block;
+  color: #060505;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  transition: color .3s .15s ease-in;
+}
+.menu {
+    margin-bottom: 60px;
+    list-style: none;
+    padding: 10px;             /* 追加 */
+    z-index: 4;
+}
+.menu li {
+    padding: 0.5rem;
+    border-bottom: solid 1px #404547;
+    color: #060505;
+    vertical-align:center
+}
+.menu a {
+    color: #060505;
+    padding: 10px;
+}
+.menu a:hover {
+    color: #0bd;
+}
+.logo {
+    width:18px;
+    padding-right: 5px
+}
+
+
+/* ログイン画面 */
+.title-login {
+    text-align: center;
+    padding: 20px;
+}
+.form-login {
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #000000;
+}
+.form-login .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-login .form-control:focus {
+  z-index: 3;
+}
+.form-login input[type="text"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-login input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-area {
+    text-align: center;
+}
+.login-btn {
+    margin: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
+
+/* ユーザ登録画面 */
+.title-signup {
+    text-align: center;
+    padding: 20px;
+}
+.form-signup {
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #000000;
+}
+.form-signup .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signup .form-control:focus {
+  z-index: 3;
+}
+.form-signup input[type="text"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signup input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-area {
+    text-align: center;
+}
+.signup-btn {
+    margin: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
+.help-signup {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+ul.help-signup {
+    list-style: none;
+}
+
+/* ユーザ情報変更画面 */
+.userinfo {
+    width: 800px;
+    margin: 0 auto;
+}
+table.userinfo-table th, table.userinfo-table td {
+    padding: 10px 5px 10px 10px;
+}
+table.userinfo-table {
+    width: 100%;
+    margin-bottom: 10px;
+}
+table.userinfo-table th {
+    text-align: left;    /* 文字列の配置(左寄せ) */
+    width: 150px;        /* メニュー項目の横幅 */
+    line-height: 40px;   /* サブメニュー1項目の高さ */
+    border-top: 3px solid #1c1475;
+    background-color: #221572;
+    border-bottom: 3px solid #fff;
+    color: #FFFFFF;
+}
+table.userinfo-table td {
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #fff;
+    border-left: 3px solid #fff;
+    background-color: #FFF;
+    color: #000000;
+}
+.form-name {
+    width: 40%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.change-btn {
+    border: 2px solid #CCC;
+    width: 100px;
+    border-radius:20px;
+}
+
+/* パスワード変更画面 */
+.passwordchange {
+    width: 800px;
+    margin: 0 auto;
+}
+table.passwordchange-table th, table.passwordchange-table td {
+    padding: 10px 5px 10px 10px;
+}
+table.passwordchange-table {
+    width: 100%;
+    margin-bottom: 10px;
+}
+table.passwordchange-table th {
+    text-align: left;    /* 文字列の配置(左寄せ) */
+    width: 150px;        /* メニュー項目の横幅 */
+    line-height: 40px;   /* サブメニュー1項目の高さ */
+    border-top: 3px solid #1c1475;
+    background-color: #221572;
+    border-bottom: 3px solid #fff;
+    color: #FFFFFF;
+}
+table.passwordchange-table td {
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #fff;
+    border-left: 3px solid #fff;
+    background-color: #FFF;
+    color: #000000;
+}
+.form-name {
+    width: 40%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.return-btn {
+    border: 2px solid #CCC;
+    width: 100px;
+    border-radius:20px;
+}
+.passwordchange-done {
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+}
+
+/* ダッシュボード */
+.dashboard {
+    padding: 10px;
+    border-width: 0px;
+}
+
+/*メンテナンス記録 */
+.maintenance_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.maintenance_list_menu {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.maintenance_list_title {
+
+}
+.maintenance_list_create {
+
+}
+.maintenance_list_table{
+}
+.maintenance_list{
+  width: 100%;
+  border-collapse: collapse;
+  border: solid 1px #404547;
+}
+.maintenance_list th{
+  border: solid 1px #404547;
+  background-color: #52A7CF;
+  color: #FFFFFF;
+}
+
+.maintenance_list td{
+  border: solid 1px #404547;
+}
+
+.maintenance_list tr:nth-child(even){
+  background-color: #FFFFFF;
+}
+
+/*メンテナンス記録
+th {
+    color: #DFE5EF;
+    text-align: left;
+}
+td {
+    color: #DFE5EF;
+
+    text-align: left;
+    padding: 0px 100px 10px 10px;
+}
+*/
+
+.create-label {
+  display: inline-block;
+  background-color: transparent;
+  padding: 0px;
+  cursor: pointer;
+  margin-bottom: 5rem;
+  position: fixed;
+}
+.form {
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 10px;             /* 追加 */
+}
+.form li {
+    padding: 0.5rem;
+    border-bottom: solid 1px #404547;
+    color: #DFE5EF;
+    vertical-align:center
+}
+
+.form-button {
+    margin-left: 15px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.custom-select {
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    background: #fff url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e) no-repeat right .75rem center/8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+/* メンテナンス登録 */
+.maintenance_main_container {
+    display: flex;
+}
+.maintenance_main-table {
+    height: 60px;
+    border-collapse: collapse;
+}
+.maintenance_main-table tr {
+    border: 1px solid #FFFFFF;
+}
+.maintenance_main-table th {
+    width: 100px;
+    padding: 10px;
+    background-color: #52A7CF;
+}
+.maintenance_main-table td {
+    width: 275px;
+    padding: 10px 10px 10px 10px;
+}
+.maintenance_main-table input {
+    margin: auto;
+    height: 30px;
+    border: 1px solid #FFFFFF;  /* 枠線 */
+    border-radius: 0.2em;   /* 角丸 */
+    background-color: #FFFFFF;
+}
+.maintenance_work-table {
+    height: 360px;
+    border-collapse: collapse;
+}
+.maintenance_work-table tr {
+    border: 1px solid #FFFFFF;
+}
+.maintenance_work-table th {
+    width: 100px;
+    padding: 10px;
+    background-color: #52A7CF;
+}
+.maintenance_work-table td {
+    width: 650px;
+    padding: 10px 10px 10px 10px;
+}
+.maintenance_work-table select {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #FFFFFF;  /* 枠線 */
+    border-radius: 0.2em;   /* 角丸 */
+    background-color: #FFFFFF;
+}
+.maintenance_work-table .content {
+    width: 600px;
+    height: 100px;
+    border: 1px solid #FFFFFF;  /* 枠線 */
+    border-radius: 0.2em;   /* 角丸 */
+    background-color: #FFFFFF;
+}
+.maintenance_work-table .comment {
+    width: 600px;
+    height: 100px;
+    border: 1px solid #FFFFFF;  /* 枠線 */
+    border-radius: 0.2em;   /* 角丸 */
+    background-color: #FFFFFF;
+}
+.maintenance_create_btn {
+    margin-top: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
+
+.maintenance_detail_menu {
+    width: 750px;
+    display: flex;
+    justify-content: space-between;
+}
+.maintenance_detail_return {
+
+}
+.maintenance_detail_update {
+
+}
+.maintenance_detail_table {
+    width: 750px;
+}
+.maintenance_return_btn {
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
+.maintenance_update_btn {
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
+
+
+
+.maintenance_update_menu {
+    width: 750px;
+    display: flex;
+    justify-content: space-between;
+}
+.maintenance_update_return {
+
+}
+.maintenance_update_update {
+
+}
+.maintenance_update_table {
+    width: 750px;
+}
+.maintenance_cancel_btn {
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
+.maintenance_complete_btn {
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
+.maintenance_delete_btn {
+    margin-top: 10px;
+    text-align: center;
+    background-color: #1B73CC;
+    color: #FFFFFF;
+    width: 100px;
+    border-radius:2px;
+    box-shadow: 0 0 3px #000000;
+}
